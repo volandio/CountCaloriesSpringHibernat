@@ -13,6 +13,7 @@
     <meta name="author" content="">
 
     <title>Admin</title>
+    <link rel="stylesheet" href="${contextPath}/resources/css/style.css">
 
     <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -28,8 +29,23 @@
     </c:if>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="${contextPath}/resources/js/bootstrap.min.js"></script>
-
+<table class="tg">
+    <tbody>
+    <tr>
+        <th width="80">id</th>
+        <th width="120">username</th>
+        <th width="120">registered</th>
+        <th width="120">caloriesPerDay</th>
+    </tr>
+    <c:forEach items="${users}" var="item">
+    <tr>
+        <td><c:out value="${item.id}"/></td>
+        <td><c:out value="${item.username}"/></td>
+        <td><c:out value="${item.registered}"/></td>
+        <td><c:out value="${item.caloriesPerDay}"/></td>
+        <td><a href="${pageContext.servletContext.contextPath}/deleteUser?id=${item.id}">Delete User</a></td>
+    </tr>
+    </c:forEach>
+</table>
 </body>
 </html>

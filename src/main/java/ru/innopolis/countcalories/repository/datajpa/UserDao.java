@@ -1,4 +1,4 @@
-package ru.innopolis.countcalories.dao;
+package ru.innopolis.countcalories.repository.datajpa;
 
 import ru.innopolis.countcalories.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
