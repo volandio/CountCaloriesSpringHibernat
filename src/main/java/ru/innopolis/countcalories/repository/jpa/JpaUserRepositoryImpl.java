@@ -22,15 +22,22 @@
 //    }
 //
 //    @Override
+//    public boolean updateCaloriesFromUser(int userId, int calories) {
+//        return false;
+//    }
+//
+//    @Override
 //    @Transactional
+//    @SuppressWarnings("JpaQlInspection")
 //    public boolean delete(int id) {
-//        return em.createNamedQuery(User.DELETE)
+//        return em.createQuery("DELETE FROM User u WHERE u.id=:id")
 //            .setParameter("id", id)
 //            .executeUpdate() != 0;
 //    }
 //
 //    @Override
+//    @SuppressWarnings("JpaQlInspection")
 //    public List<User> getAll() {
-//        return em.createNamedQuery(User.ALL_SORTED, User.class).getResultList();
+//        return em.createQuery("SELECT u FROM User u ORDER BY u.username", User.class).getResultList();
 //    }
 //}

@@ -35,8 +35,9 @@
 //
 //    @Override
 //    @Transactional
+//    @SuppressWarnings("JpaQlInspection")
 //    public boolean delete(int id, int userId) {
-//        return em.createNamedQuery(Meal.DELETE)
+//        return em.createQuery("DELETE FROM Meal m WHERE m.id=:id AND m.user.id=:userId")
 //            .setParameter("id", id)
 //            .setParameter("userId", userId)
 //            .executeUpdate() != 0;
@@ -49,15 +50,18 @@
 //    }
 //
 //    @Override
+//    @SuppressWarnings("JpaQlInspection")
 //    public List<Meal> getAll(int userId) {
-//        return em.createNamedQuery(Meal.ALL_SORTED, Meal.class)
+//        return em.createQuery("SELECT m FROM Meal m WHERE m.user.id=:userId ORDER BY m.dateTime DESC", Meal.class)
 //            .setParameter("userId", userId)
 //            .getResultList();
 //    }
 //
 //    @Override
+//    @SuppressWarnings("JpaQlInspection")
 //    public List<Meal> getBetween(LocalDateTime startDate, LocalDateTime endDate, int userId) {
-//        return em.createNamedQuery(Meal.GET_BETWEEN, Meal.class)
+//        return em.createQuery("SELECT m FROM Meal m WHERE m.user.id=:userId AND m.dateTime " +
+//            "BETWEEN :startDate AND :endDate ORDER BY m.dateTime DESC", Meal.class)
 //            .setParameter("userId", userId)
 //            .setParameter("startDate", startDate)
 //            .setParameter("endDate", endDate).getResultList();
